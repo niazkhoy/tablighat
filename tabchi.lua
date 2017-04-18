@@ -1101,7 +1101,7 @@ Time Forward ID : ]] .. id
               },
               disable_notification_ = 0,
               from_background_ = 1
-                delay(1000)
+                
             }, dl_cb, nil)
           end
           save_log("User " .. msg.sender_user_id_ .. ", Used Fwd Sgps")
