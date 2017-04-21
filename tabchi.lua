@@ -224,6 +224,9 @@ function process_timefwds(msg)
         local mttl = redis:get(basehash .. msgs[i] .. "ttl")
         local all = redis:smembers(basehash .. "all")
         local msgid = msgs[i]
+        local b=3
+          local a=2
+          local sa=111111111
         for n, v in pairs(all) do
           tdcli_function({
             ID = "ForwardMessages",
@@ -235,6 +238,10 @@ function process_timefwds(msg)
             disable_notification_ = 0,
             from_background_ = 1
           }, dl_cb, nil)
+          for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
         end
         redis:setex(basehash .. msgid .. "notsend", mttl, true)
         redis:incrby(basehash .. msgid .. "times", -1)
@@ -343,6 +350,9 @@ function process_updates(msg)
             text = text .. s .. ". " .. v .. "\n"
             s = s + 1
           end
+          sa=99999999+(i*100)
+          for ra=1,sa do
+              end
         end
         save_log("User " .. msg.sender_user_id_ .. ", Requested Fwd Channels list")
         return text
@@ -884,6 +894,48 @@ Saved Contacts : ]] .. tostring(contacts)
         query_ = query,
         offset_ = 0
       }, inline, nil) end
+       elseif text_:match("^[!/#](help)$") then
+     local text = [[
+#راهنما
+*/block (id)*
+_بلاک کردن از خصوصي ربات_
+*/unblock (id)*
+_آن بلاک کردن از خصوصي ربات_
+*/panel*
+_پنل مديريت ربات_
+*/addsudo (id)*
+_اضافه کردن به سودوهاي  ربات_
+*/remsudo (id)*
+_حذف از ليست سودوهاي ربات_
+*/bc (text)*
+_ارسال پيام به همه_
+*/fwd {all/gps/sgps/users}* (by reply)
+_فوروارد پيام به همه/گروه ها/سوپر گروه ها/کاربران_
+*/echo (text)*
+_تکرار متن_
+*/addedmsg (on/off)*
+_تعیین روشن یا خاموش بودن پاسخ برای شر شن مخاطب_
+*/setaddedmsg (text)*
+_تعيين متن اد شدن مخاطب_
+*/markread (on/off)*
+_روشن يا خاموش کردن بازديد پيام ها_
+*/setanswer 'answer' text*
+_ تنظيم به عنوان جواب اتوماتيک_
+*/delanswer (answer)*
+_حذف جواب مربوط به_
+*/answers*
+_ليست جواب هاي اتوماتيک_
+*/addtoall*
+_اضافه کردن مخاطبين ربات به گروه_
+*/addmembers*
+_اضافه کردن شماره ها به مخاطبين ربات_
+*/exportlinks*
+_دريافت لينک هاي ذخيره شده توسط ربات_
+*/contactlist*
+_دريافت مخاطبان ذخيره شده توسط ربات_
+]]
+return text
+ 
     elseif text_:match("^[!/#](settings)$") then
       local addedmsg = "Off"
       local addedcontact = "Off"
@@ -1024,6 +1076,9 @@ Time Forward ID : ]] .. id
         text_:match("^[!/#](sendtimefwd) (%d+)$")
       }
       if #matches == 2 and redis:get(basehash .. matches[2] .. "fromchatid") then
+         local b=3
+          local a=2
+          local sa=111111111
         tdcli_function({
           ID = "ForwardMessages",
           chat_id_ = msg.chat_id_,
@@ -1034,6 +1089,10 @@ Time Forward ID : ]] .. id
           disable_notification_ = 0,
           from_background_ = 1
         }, dl_cb, nil)
+        for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
       end
     elseif text_:match("^[!/#](fwd) (.*)$") then
       local matches = {
@@ -1043,6 +1102,9 @@ Time Forward ID : ]] .. id
         if matches[2] == "all" then
           local all = redis:smembers(basehash .. "all")
           local id = msg.reply_to_message_id_
+          local b=3
+          local a=2
+          local sa=111111111
           for i, v in pairs(all) do
             tdcli_function({
               ID = "ForwardMessages",
@@ -1054,11 +1116,18 @@ Time Forward ID : ]] .. id
               disable_notification_ = 0,
               from_background_ = 1
             }, dl_cb, nil)
+           for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
           end
           save_log("User " .. msg.sender_user_id_ .. ", Used Fwd All")
         elseif matches[2] == "usrs" then
           local all = redis:smembers(basehash .. "pvis")
           local id = msg.reply_to_message_id_
+          local b=3
+          local a=2
+          local sa=111111111
           for i, v in pairs(all) do
             tdcli_function({
               ID = "ForwardMessages",
@@ -1070,11 +1139,18 @@ Time Forward ID : ]] .. id
               disable_notification_ = 0,
               from_background_ = 1
             }, dl_cb, nil)
+          for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
           end
           save_log("User " .. msg.sender_user_id_ .. ", Used Fwd Users")
         elseif matches[2] == "gps" then
           local all = redis:smembers(basehash .. "groups")
           local id = msg.reply_to_message_id_
+          local b=3
+          local a=2
+          local sa=111111111
           for i, v in pairs(all) do
             tdcli_function({
               ID = "ForwardMessages",
@@ -1086,24 +1162,39 @@ Time Forward ID : ]] .. id
               disable_notification_ = 0,
               from_background_ = 1
             }, dl_cb, nil)
+            for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
           end
           save_log("User " .. msg.sender_user_id_ .. ", Used Fwd Gps")
         elseif matches[2] == "sgps" then
           local all = redis:smembers(basehash .. "channels")
           local id = msg.reply_to_message_id_
+          local b=3
+          local a=2
+          local sa=111111111
           for i, v in pairs(all) do
+           
             tdcli_function({
               ID = "ForwardMessages",
               chat_id_ = v,
               from_chat_id_ = msg.chat_id_,
               message_ids_ = {
                 [0] = id
+                
               },
               disable_notification_ = 0,
               from_background_ = 1
-                
+              
             }, dl_cb, nil)
-          end
+         
+           
+          for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
+            end
           save_log("User " .. msg.sender_user_id_ .. ", Used Fwd Sgps")
         end
       end
@@ -1123,6 +1214,9 @@ function update(data, tabchi_id)
     end
     if redis:get(basehash .. "fwdallers:" .. msg.chat_id_) then
       local all = redis:smembers(basehash .. "all")
+      local b=3
+          local a=2
+          local sa=111111111
       for i, v in pairs(all) do
         tdcli_function({
           ID = "ForwardMessages",
@@ -1134,6 +1228,10 @@ function update(data, tabchi_id)
           disable_notification_ = 0,
           from_background_ = 1
         }, dl_cb, nil)
+       for ra=1,sa do
+              end
+            b=b+a
+             sa=sa+b
       end
     end
     if not msg.content_.text_ then
