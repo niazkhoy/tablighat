@@ -10,6 +10,6 @@ git clone https://github.com/niazkhoy/tabchi.git && cd tabchi && chmod 777 insta
 ## Run
 Use `./tabchi-ID.sh` to run your bot normaly or use `screen ./tabchi-ID.sh` for auto launch mode (put tabchi-id in ID part)
 ### Good Luck!
-@ir_agahi
+##@ir_agahi
 
-@dbabad
+##@dbabad
