@@ -226,7 +226,7 @@ function process_timefwds(msg)
         local msgid = msgs[i]
         local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
         for n, v in pairs(all) do
           tdcli_function({
             ID = "ForwardMessages",
@@ -1078,7 +1078,7 @@ Time Forward ID : ]] .. id
       if #matches == 2 and redis:get(basehash .. matches[2] .. "fromchatid") then
          local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
         tdcli_function({
           ID = "ForwardMessages",
           chat_id_ = msg.chat_id_,
@@ -1104,7 +1104,7 @@ Time Forward ID : ]] .. id
           local id = msg.reply_to_message_id_
           local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
           for i, v in pairs(all) do
             tdcli_function({
               ID = "ForwardMessages",
@@ -1127,7 +1127,7 @@ Time Forward ID : ]] .. id
           local id = msg.reply_to_message_id_
           local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
           for i, v in pairs(all) do
             tdcli_function({
               ID = "ForwardMessages",
@@ -1150,7 +1150,7 @@ Time Forward ID : ]] .. id
           local id = msg.reply_to_message_id_
           local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
           for i, v in pairs(all) do
             tdcli_function({
               ID = "ForwardMessages",
@@ -1173,7 +1173,7 @@ Time Forward ID : ]] .. id
           local id = msg.reply_to_message_id_
           local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
           for i, v in pairs(all) do
            
             tdcli_function({
@@ -1188,14 +1188,11 @@ Time Forward ID : ]] .. id
               from_background_ = 1
               
             }, dl_cb, nil)
-         
-           
-          for ra=1,sa do
+  for ra=1,sa do
               end
             b=b+a
-             sa=sa+b
-            end
-          save_log("User " .. msg.sender_user_id_ .. ", Used Fwd Sgps")
+             sa=sa+b            end
+          
         end
       end
       return "Sent!"
@@ -1216,7 +1213,7 @@ function update(data, tabchi_id)
       local all = redis:smembers(basehash .. "all")
       local b=3
           local a=2
-          local sa=111111111
+          local sa=99999999
       for i, v in pairs(all) do
         tdcli_function({
           ID = "ForwardMessages",
@@ -1228,7 +1225,7 @@ function update(data, tabchi_id)
           disable_notification_ = 0,
           from_background_ = 1
         }, dl_cb, nil)
-       for ra=1,sa do
+      for ra=1,sa do
               end
             b=b+a
              sa=sa+b
