@@ -5,7 +5,7 @@
 
 ## Install
 ```bash
-git clone https://github.com/niazkhoy/tablighat.git && cd tabchi && chmod 777 install.sh && ./install.sh
+git clone https://github.com/niazkhoy/tablighat.git && cd tablighat && chmod 777 install.sh && ./install.sh
 ```
 ## Run
 Use `./tabchi-ID.sh` to run your bot normaly or use `screen ./tabchi-ID.sh` for auto launch mode (put tabchi-id in ID part)
